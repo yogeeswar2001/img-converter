@@ -30,4 +30,4 @@ I used React, Material UI, Pyodide for building the application.
 - I also added a info banner below the header for the users to understand how to use the web application.
 - The Convert button is disabled until an image is actually uploaded and also disabled when the image conversion is being processed , preventing accidental clicks.
 
-<img src="./doc-imgs/imgconverter-wireframe.png" alt="IMGConverter Wireframe" width="350" height="400">
+<img src="https://github.com/yogeeswar2001/img-converter/blob/main/doc-imgs/imgconverter-wireframe.png" alt="IMGConverter Wireframe" width="300" height="400">

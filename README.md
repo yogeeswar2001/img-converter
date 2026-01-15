@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+## IMGConverter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application enables users to upload images via file picker or drag-and-drop and convert them to grayscale using Python in the browser via Pyodide. The application can be accessed from [GitHub Pages](https://yogeeswar2001.github.io/img-converter).
 
-## Available Scripts
+### Technical Design
+I used React, Material UI, Pyodide for building the application.
 
-In the project directory, you can run:
+- Why React?
+    - React hooks enable automatic UI updates when application state changes such as tracking uploaded images, managing the grayscale conversion process, and toggling loading indicators.
+    - Simplifies state management and improves maintainability compared to manually handling DOM updates and state in vanilla JavaScript.
+    - As React is component based scales cleanly as features are added without increasing code complexity.
 
-### `npm start`
+- Why Material UI?
+    - Provides pre-built, accessible, and responsive components such as Button, Grid, Paper, and Typography.
+    - Enables for fast UI development by using the existing components while giving professional look and feel.
+    - A common theme can be created using MUI’s ThemeProvider to define colors, typography, and layout behavior in one place in Index.js file, this simplifies design updates by changing styles centrally rather than per component.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- JavaScript–Python bridge is provided by Pyodide library. The Pillow library processes the image and performs grayscale conversion.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- UI state management
+    - React state tracks the original image, grayscale image, loading state, and selected download format.
+    - Conditional rendering ensures UI elements appear only when relevant (e.g., converted image shown after processing).
+    - Loading indicators provide user feedback during image conversion.
 
-### `npm test`
+- File validation and error handling
+    - Common validation logic is shared between file input and drag and drop handlers. Only supports image formats (JPG, JPEG, PNG) are accepted, this revents runtime errors caused by unsupported files or canceled file selection.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### UI Design considerations
+- To make the UI intuitive I developed a single page application which minimizes the amount of navigation needed.
+- I also added a info banner below the header for the users to understand how to use the web application.
+- The Convert button is disabled until an image is actually uploaded and also disabled when the image conversion is being processed , preventing accidental clicks.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="./doc-imgs/imgconverter-wireframe.png" alt="IMGConverter Wireframe" width="350" height="400">

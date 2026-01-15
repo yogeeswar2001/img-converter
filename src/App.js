@@ -26,8 +26,33 @@ function App() {
     loadPyodide();
   }, []);
 
+  // util method to validate if the input file is in the acceptable format
+  const validateFile = (file) => {
+    if (!file) return { valid: false };
+
+    const allowedTypes = ["image/jpeg", "image/png"];
+    const allowedExtensions = [".jpg", ".jpeg", ".png"];
+
+    const isValidType = allowedTypes.includes(file.type);
+    const isValidExtension = allowedExtensions.some(ext =>
+      file.name.toLowerCase().endsWith(ext)
+    );
+
+    if (!isValidType || !isValidExtension) {
+      return { valid: false, error: "Only JPG and PNG images are supported." };
+    }
+
+    return { valid: true };
+  };
+
   // Reads the selected image and stores it as Base64 string 
   const handleFile = (file) => {
+    const { valid, error } = validateFile(file);
+    if (!valid) {
+      if (error) alert(error);
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = () => {
       setOriginalImage(reader.result);
@@ -39,9 +64,8 @@ function App() {
   // method to handle drag and drop of image files
   const handleDrop = (e) => {
     e.preventDefault();
-    if (e.dataTransfer.files.length > 0) {
-      handleFile(e.dataTransfer.files[0]);
-    }
+    const file = e.dataTransfer.files[0];
+    handleFile(file);
   };
 
   // convert the uploaded image to grayscale using python with pyodide
@@ -102,7 +126,7 @@ encoded_result = base64.b64encode(buffer.getvalue()).decode("utf-8")
             <input
               hidden
               type="file"
-              accept="image/*"
+              accept="image/png,image/jpeg,image/jpg"
               onChange={(e) => handleFile(e.target.files[0])}
             />
           </Button>
@@ -168,7 +192,7 @@ encoded_result = base64.b64encode(buffer.getvalue()).decode("utf-8")
                     href={grayImage}
                     download="grayscale.png"
                   >
-                    Download
+                    Download PNG
                   </Button>
                 </Box>
               </Paper>

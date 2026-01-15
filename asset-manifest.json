@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/img-converter/static/js/main.b338ac9d.js",
+    "static/js/453.c81a1653.chunk.js": "/img-converter/static/js/453.c81a1653.chunk.js",
+    "index.html": "/img-converter/index.html",
+    "main.b338ac9d.js.map": "/img-converter/static/js/main.b338ac9d.js.map",
+    "453.c81a1653.chunk.js.map": "/img-converter/static/js/453.c81a1653.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.b338ac9d.js"
+  ]
+}

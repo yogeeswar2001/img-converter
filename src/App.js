@@ -8,6 +8,7 @@ import {
   Button,
   Paper,
   Grid,
+  Alert,
 } from "@mui/material";
 
 function App() {
@@ -106,6 +107,10 @@ encoded_result = base64.b64encode(buffer.getvalue()).decode("utf-8")
         </Toolbar>
       </AppBar>
 
+      <Alert severity="info">
+        Upload an image, convert to grayscale instantly, and download as a PNG.
+      </Alert>
+      
       <Container sx={{ flexGrow: 1, py: 4 }}>
         <Paper
           elevation={3}

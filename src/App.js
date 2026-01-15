@@ -119,35 +119,59 @@ encoded_result = base64.b64encode(buffer.getvalue()).decode("utf-8")
           </Button>
         </Box>
 
-        <Grid container spacing={4} mt={2} justifyContent="center">
+        <Grid container spacing={3} mt={3} justifyContent="center">
           {originalImage && (
             <Grid item>
-              <Typography variant="subtitle1">Original</Typography>
-              <img
-                src={originalImage}
-                alt="original"
-                style={{ maxWidth: 300, border: "1px solid #ccc" }}
-              />
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                  width={320}
+                >
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Original Image
+                  </Typography>
+
+                  <img
+                    src={originalImage}
+                    alt="original"
+                    style={{ maxWidth: 300 }}
+                  />
+                </Box>
+              </Paper>
             </Grid>
           )}
 
           {grayImage && (
             <Grid item>
-              <Typography variant="subtitle1">Grayscale</Typography>
-              <img
-                src={grayImage}
-                alt="grayscale"
-                style={{ maxWidth: 300, border: "1px solid #ccc" }}
-              />
-              <Box mt={1}>
-                <Button
-                  variant="outlined"
-                  href={grayImage}
-                  download="grayscale.png"
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                  width={320}
                 >
-                  Download
-                </Button>
-              </Box>
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Grayscale Image
+                  </Typography>
+
+                  <img
+                    src={grayImage}
+                    alt="grayscale"
+                    style={{ maxWidth: 300 }}
+                  />
+
+                  <Button
+                    variant="outlined"
+                    sx={{ mt: 1 }}
+                    href={grayImage}
+                    download="grayscale.png"
+                  >
+                    Download
+                  </Button>
+                </Box>
+              </Paper>
             </Grid>
           )}
         </Grid>

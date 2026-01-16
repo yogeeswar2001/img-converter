@@ -2,7 +2,7 @@
 
 This application enables users to upload images via file picker or drag-and-drop and convert them to grayscale using Python in the browser via Pyodide. The application can be accessed from [GitHub Pages](https://yogeeswar2001.github.io/img-converter).
 
-### Technical Design
+### Design
 I used React, Material UI, Pyodide for building the application.
 
 - Why React?

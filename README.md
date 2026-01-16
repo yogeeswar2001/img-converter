@@ -31,3 +31,8 @@ I used React, Material UI, Pyodide for building the application.
 - The Convert button is disabled until an image is actually uploaded and also disabled when the image conversion is being processed , preventing accidental clicks.
 
 <img src="https://github.com/yogeeswar2001/img-converter/blob/main/doc-imgs/imgconverter-wireframe.png" alt="IMGConverter Wireframe" width="300" height="400">
+
+### References
+- Material UI Documentation - https://mui.com/material-ui/getting-started/
+- Hosting react apps in github pages - https://www.geeksforgeeks.org/reactjs/deployment-of-react-application-using-github-pages/
+- No AI tools was used in design of this application
